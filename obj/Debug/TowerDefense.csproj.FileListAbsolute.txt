@@ -1,0 +1,7 @@
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\bin\Debug\TowerDefense.exe.config
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\bin\Debug\TowerDefense.exe
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\bin\Debug\TowerDefense.pdb
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\obj\Debug\TowerDefense.csprojAssemblyReference.cache
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\obj\Debug\TowerDefense.csproj.CoreCompileInputs.cache
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\obj\Debug\TowerDefense.exe
+C:\Users\Amit_\source\repos\TowerDefense\TowerDefense\obj\Debug\TowerDefense.pdb
