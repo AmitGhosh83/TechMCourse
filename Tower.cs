@@ -10,6 +10,8 @@ namespace TowerDefense
     {
         private readonly MapLocation _location;
         private readonly Path _path;
+        private const int range = 1;
+        private const int factor = 1;
 
         public Tower( MapLocation location, Path path)
         {
@@ -18,6 +20,21 @@ namespace TowerDefense
             //else
             //    throw new Exception(location.X + "," + location.Y + "is on path");
                   
+        }
+
+        // If Invader is in range of Tower and not Nuetralized yet, then fire
+
+        public void FireOnInvaders(Invader[] invaders)
+        {
+            foreach (Invader invader in invaders)
+            {
+                if(_location.InRangeOf(invader.Location, range)&& invader.IsActive)
+                {
+                    invader.DecreaseHealth(factor);
+                    break; // To make sure it breaks out after hitting one invader
+                }
+                
+            }
         }
     }
 }

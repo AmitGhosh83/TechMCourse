@@ -16,5 +16,11 @@ namespace TowerDefense
             }
          
         }
+
+        // to check if Tower and Invader are Within Range
+        public bool InRangeOf(MapLocation location, int range)
+        {
+            return DistanceTo(location) <= range;
+        }
     }
 }
