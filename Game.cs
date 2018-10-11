@@ -28,7 +28,7 @@ namespace TowerDefense
                     }
                     );
 
-              
+                Tower tower = new Tower(new MapLocation(3,2,map), p);
                 
             }
             

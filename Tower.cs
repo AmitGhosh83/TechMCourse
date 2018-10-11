@@ -9,16 +9,17 @@ namespace TowerDefense
     public class Tower
     {
         private readonly MapLocation _location;
-        private readonly Path _path;
+       // private readonly Path _path;
         private const int range = 1;
         private const int factor = 1;
 
         public Tower( MapLocation location, Path path)
         {
-            //if (path.OnPath(location))
+            // Create Tower Object only if its not on the Path
+            if (path.OnPath(location))
                 _location = location;
-            //else
-            //    throw new Exception(location.X + "," + location.Y + "is on path");
+            else
+            throw new Exception("Tower in location "+ location.X + "," + location.Y + " is on Path of Invaders");
                   
         }
 

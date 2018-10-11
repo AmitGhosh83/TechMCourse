@@ -17,7 +17,7 @@ namespace TowerDefense
             _invaders = invaders;
         }
 
-        // True if player wins and false if player looses
+        // True if player wins and False if player looses
         public bool Play()
         {
             // Run until all Invaders are nuetralized or an invader reaches the end of path
@@ -38,12 +38,10 @@ namespace TowerDefense
                     if (invader.IsActive)
                     {
                         invader.Move();
-                        {
-                            if(invader.HasScored)
+                        if(invader.HasScored)
                             {
                                 return false;
                             }
-                        }
                         remainingInvaders += 1;
                     }
                         

@@ -13,14 +13,18 @@ namespace TowerDefense
         {
             _path = path;
         }
+
+        // Public property to return Length of the Path class
         public int Length => _path.Length;
 
+        //Method to verify where on the path a invader is
         public MapLocation GetLocationAt( int pathstep)
         {
            return (pathstep < _path.Length) ? _path[pathstep] : null;
         }
 
-        /*public bool OnPath( MapLocation loc)
+        // Check to see that a Tower cant be placed on a Path
+        public bool OnPath( MapLocation loc)
         {
             foreach (MapLocation onPath in _path)
             {
@@ -28,7 +32,7 @@ namespace TowerDefense
                     return true;
             }
             
-
-        }*/
+           return false;
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace TowerDefense
             Width = width;
         }
 
+        //Check to see if a given point is on the map
         public bool OnMap(Point point)
         {
             return point.X < Width && point.X >= 0 && point.Y < Height && point.X >= 0;
