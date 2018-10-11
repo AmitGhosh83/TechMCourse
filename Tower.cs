@@ -10,8 +10,18 @@ namespace TowerDefense
     {
         private readonly MapLocation _location;
        // private readonly Path _path;
-        private const int range = 1;
-        private const int factor = 1;
+        private const int _range = 1;
+        private const int _factor = 1;
+        private const double _accuracy = 0.75;
+        private static Random _random = new Random();
+
+        public bool IsSuccessfulShot
+        {
+            get
+            {
+                return _random.NextDouble() < _accuracy;
+            }
+        }
 
         public Tower( MapLocation location, Path path)
         {
@@ -29,13 +39,26 @@ namespace TowerDefense
         {
             foreach (Invader invader in invaders)
             {
-                if(_location.InRangeOf(invader.Location, range)&& invader.IsActive)
+                if (invader.IsActive && _location.InRangeOf(invader.Location, _range))
                 {
-                    invader.DecreaseHealth(factor);
-                    break; // To make sure it breaks out after hitting one invader
+                    if (IsSuccessfulShot)
+                    {
+                        invader.DecreaseHealth(_factor);
+                        Console.WriteLine("Shot At and Hit an invader");
+                        if(invader.IsNuetralized)
+                        {
+                            Console.WriteLine("Invader is nuetralized");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Shot at and missed an Invader");
+                    }
+                    break; // To make sure it breaks out after hitting one invader  
                 }
-                
+
             }
+
         }
     }
 }

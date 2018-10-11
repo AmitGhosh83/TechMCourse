@@ -10,9 +10,11 @@ namespace TowerDefense
     {
         static void Main(string[] args)
         {
+            // Create the map object where the game will be played
             Map map = new Map(5,8);
             try
             {
+               // Create the path in which the invaders would come down to attack
                Path p = new Path(
                     new[] 
                     {
@@ -27,9 +29,33 @@ namespace TowerDefense
 
                     }
                     );
+                // Create an array of Invaders
+                Invader[] invaders =
+                    
+                    {
+                        new Invader(p),
+                        new Invader(p),
+                        new Invader(p),
+                        new Invader(p),
+                    };
 
-                Tower tower = new Tower(new MapLocation(3,2,map), p);
-                
+                //Create an array of Towers who would be firing on the invaders
+                Tower[] towers =
+                    {
+                        new Tower(new MapLocation(1,3,map), p),
+                        new Tower(new MapLocation(1,3,map), p),
+                        new Tower(new MapLocation(1,3,map), p),
+                    };
+
+                // Play the Game
+
+                Level level = new Level(invaders); // passing the invader array to Level
+                level.Towers = towers;             // assigning the towers to the level object
+
+                bool result =level.Play();        // Play the game and see who own, Player wins if all attackers are nuetralized, 
+                                                  //loses otherwise
+                Console.WriteLine();
+                Console.WriteLine("Player {0}", result ? "won" : "lost");
             }
             
 

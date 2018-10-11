@@ -16,6 +16,12 @@ namespace TowerDefense
         {
             _invaders = invaders;
         }
+        Random random = new Random();
+
+        public bool IsSuccessfulShot(Tower[] towers)
+        {
+            return random.NextDouble() < 0.75;
+        }
 
         // True if player wins and False if player looses
         public bool Play()
@@ -23,7 +29,7 @@ namespace TowerDefense
             // Run until all Invaders are nuetralized or an invader reaches the end of path
             int remainingInvaders = _invaders.Length;
 
-            while (remainingInvaders > 0)
+            while (remainingInvaders > 0)   
             {
                 //Each Tower has oppurtunity to fire on Invaders
                 foreach (Tower tower in Towers)
@@ -35,21 +41,20 @@ namespace TowerDefense
                 remainingInvaders = 0;
                 foreach (Invader invader in _invaders)
                 {
-                    if (invader.IsActive)
+                    if (invader.IsActive) // invader whose health is not 0 and not reached end of the path
                     {
-                        invader.Move();
-                        if(invader.HasScored)
+                        invader.Move();     // move active invaders by 1 step                  
+                            if (invader.HasScored) // check if invader has reached end of path
                             {
-                                return false;
-                            }
-                        remainingInvaders += 1;
+                                  return false; // player lost
+                            }                                     
+                        remainingInvaders += 1; // increment the remaining invader count by 1 and move to check the next invader status
                     }
                         
                 }
 
             }
-            return true;
-
+            return true; // Player won, all invaders nuetralized
         }
     }
 }

@@ -29,12 +29,12 @@ namespace TowerDefense
         // Checking to see if Health is remaining
         public bool IsNuetralized => Health <= 0;
 
-        // Checking to see which invaders have health left and not reached the end of the path
+        // Checking to see if invader has health left and not reached the end of the path
         public bool IsActive
         {
             get
             {
-                return !IsNuetralized || !HasScored;
+                return !(IsNuetralized || HasScored);
             }
         }
 
@@ -44,7 +44,7 @@ namespace TowerDefense
             _path = path;
         }
 
-        //Move the Invader forward
+        //Move the Invader forward by 1 step
         public void Move()
         {
             _pathStep = _pathStep + 1;
